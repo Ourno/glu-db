@@ -14,6 +14,9 @@ using namespace std;
 // признак бюджетности, стипендия (нет/обычная/повышенная),
 // флаг наличия социальной стипендии, дата рождения
 
+// http://stackoverflow.com/questions/14765155/how-can-i-easily-format-my-data-table-in-c
+// http://ru.cppreference.com/w/cpp/container/vector
+
 struct student {
     string first_name;
     string last_name;
