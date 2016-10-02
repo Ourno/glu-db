@@ -17,16 +17,43 @@ using namespace std;
 // http://ru.cppreference.com/w/cpp/container/vector
 
 #include "student.h"
+#include "common.h"
+
+
+int launch_menu() {
+    cout << endl
+         << "1 - Add student" << endl
+         << "2 - Browse students" << endl
+         << "3 - Save into file" << endl
+         << "4 - Load from file" << endl
+         << "0 - Exit" << endl << "> " << accent;
+    
+    int in;
+    cin >> in;
+    cout << white;
+    
+    return in;
+}
 
 int main() {
-    student stdnt;
+    cout << endl << accent << "Glu PR2. Student database." << endl << white;
     
-    if(create_student(&stdnt)) {
-        cout << "First name\t\t\tLast name" << endl;
-        cout << stdnt.first_name << "\t\t\t" << stdnt.last_name << endl;
-    } else {
-        cout << "Canceled." << endl;
+    int result;
+    
+    while (result = launch_menu()) {
+        switch (result) {
+            case 1:
+                student stdnt;
+                if(create_student(&stdnt))
+                {
+                    cout << "Successfully created student." << endl;
+                    break;
+                }
+                cout << "Failed or canceled." << endl;
+                break;
+        }
     }
+    
     
     return 0;
 }
