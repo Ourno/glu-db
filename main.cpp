@@ -14,11 +14,15 @@ using namespace std;
 // флаг наличия социальной стипендии, дата рождения
 
 // http://stackoverflow.com/questions/14765155/how-can-i-easily-format-my-data-table-in-c
-// http://ru.cppreference.com/w/cpp/container/vector
 
 #include "student.h"
 #include "common.h"
 
+const int ADD = 1;
+const int BRWS = 2;
+const int SAVE = 3;
+const int LOAD = 4;
+const int EXIT = 0;
 
 int launch_menu() {
     cout << endl
@@ -30,7 +34,7 @@ int launch_menu() {
     
     int in;
     cin >> in;
-    cout << white;
+    cout << white << endl;
     
     return in;
 }
@@ -38,12 +42,14 @@ int launch_menu() {
 int main() {
     cout << endl << accent << "Glu PR2. Student database." << endl << white;
     
-    int result;
-    
-    while (result = launch_menu()) {
-        switch (result) {
-            case 1:
-                student stdnt;
+    int in;
+    while (in = launch_menu()) {
+        
+        student stdnt;
+        
+        switch (in) {
+            
+            case ADD:
                 if(create_student(&stdnt))
                 {
                     cout << "Successfully created student." << endl;
@@ -51,6 +57,13 @@ int main() {
                 }
                 cout << "Failed or canceled." << endl;
                 break;
+            
+            case BRWS:
+                print_students();
+                break;
+                
+            case SAVE:
+                save("test.txt");
         }
     }
     

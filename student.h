@@ -19,10 +19,14 @@ struct student {
         // 2 - extra
 };
 
-extern vector<student> students_vec;
+//extern vector<student> students_vec;
 
 bool create_student(student* stdnt);
 
 void print_student(student* stdnt);
+
+void print_students();
+
+void save(string paths);
 
 #endif

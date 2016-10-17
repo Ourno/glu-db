@@ -30,11 +30,27 @@ bool read_date(string fieldname, tm* date) {
     cin >> in;
     cout << white;
     
-    return strptime(in.c_str(), "%d.%m.%Y", date) != NULL;
+    auto is_date_correct = strptime(in.c_str(), "%d.%m.%Y", date) != NULL;
+    
+    if (!is_date_correct) return false;
+    
+    auto good_time = mktime(date);
+    
+    char buff[20];
+    struct tm * timeinfo;
+    timeinfo = localtime (&good_time);
+    strftime(buff, sizeof(buff), "%d.%m.%Y", timeinfo);
+    
+    cout << white << "Born: " << accent
+         << timeinfo->tm_mday << "."
+         << timeinfo->tm_mon + 1 << "."
+         << timeinfo->tm_year + 1900 << endl;
+    
+    return true;
 }
 
 bool read_flag(string fieldname, bool* flag) {
-    cout << "Does have " << fieldname << " (y or n)?: " << accent;
+    cout << "Does have " << fieldname << "? (y/n): " << accent;
     
     string result;
     cin >> result;
