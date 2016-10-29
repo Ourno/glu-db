@@ -3,8 +3,11 @@
 #include <string>
 #include <ctime>
 #include <stdlib.h>
+#include <boost/date_time.hpp>
+#include <boost/date_time/gregorian/gregorian.hpp>
 
 using namespace std;
+using namespace boost;
 
 #include "common.h"
 
@@ -23,7 +26,19 @@ bool read_field(string fieldname, string* field) {
     return !temp.empty();
 }
 
+bool is_that_stupid_day(tm* date)
+{
+    return (date->tm_mday == 29) && (date->tm_mon == 1);
+}
+
+bool is_leap_year(int year)
+{
+    return ((year & 3) == 0 && ((year % 25) != 0 || (year & 15) == 0));
+}
+
 bool read_date(string fieldname, tm* date) {
+    using namespace boost::gregorian;
+    
     cout << "Enter " << fieldname << "(dd.mm.yyyy): " << accent;
     
     string in;
@@ -33,18 +48,7 @@ bool read_date(string fieldname, tm* date) {
     auto is_date_correct = strptime(in.c_str(), "%d.%m.%Y", date) != NULL;
     
     if (!is_date_correct) return false;
-    
-    auto good_time = mktime(date);
-    
-    char buff[20];
-    struct tm * timeinfo;
-    timeinfo = localtime (&good_time);
-    strftime(buff, sizeof(buff), "%d.%m.%Y", timeinfo);
-    
-    cout << white << "Born: " << accent
-         << timeinfo->tm_mday << "."
-         << timeinfo->tm_mon + 1 << "."
-         << timeinfo->tm_year + 1900 << endl;
+    if (!is_leap_year(date->tm_year + 1900) && is_that_stupid_day(date)) return false;
     
     return true;
 }

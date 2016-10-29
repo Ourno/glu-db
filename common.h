@@ -12,5 +12,6 @@ bool read_field(string fieldname, string* field);
 bool read_date(string fieldname, tm* date);
 bool read_flag(string fieldname, bool* flag);
 bool read_grant_type(int* grant_type);
+bool is_leap_year(int year);
 
 #endif

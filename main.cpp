@@ -55,7 +55,7 @@ int main() {
                     cout << "Successfully created student." << endl;
                     break;
                 }
-                cout << "Failed or canceled." << endl;
+                cout << "Canceled or invalid data provided. " << endl;
                 break;
             
             case BRWS:
