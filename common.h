@@ -8,6 +8,7 @@ using namespace std;
 extern string white;
 extern string accent;
 
+bool can_print_messages();
 bool read_field(string fieldname, string* field);
 bool read_date(string fieldname, tm* date);
 bool read_flag(string fieldname, bool* flag);

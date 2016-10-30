@@ -6,6 +6,7 @@
 #include <string.h>
 #include <errno.h>
 #include <cmath>
+#include <boost/algorithm/string.hpp>
 
 using namespace std;
 
@@ -18,55 +19,75 @@ using namespace std;
 #include "student.h"
 #include "common.h"
 
-const int ADD = 1;
-const int BRWS = 2;
-const int SAVE = 3;
-const int LOAD = 4;
-const int EXIT = 0;
+const string ADD  = "add";
+const string BRWS = "ls";
+const string SAVE = "save";
+const string LOAD = "load";
+const string EXIT = "exit";
 
-int launch_menu() {
-    cout << endl
-         << "1 - Add student" << endl
-         << "2 - Browse students" << endl
-         << "3 - Save into file" << endl
-         << "4 - Load from file" << endl
-         << "0 - Exit" << endl << "> " << accent;
-    
-    int in;
+string launch_menu() {
+    cout << "> " << accent;
+    string in;
     cin >> in;
     cout << white << endl;
     
+    boost::trim(in);
+    
     return in;
+}
+
+void show_help()
+{
+    cout << endl
+         << "add    Create a student" << endl
+         << "ls     Browse students" << endl
+         << "save   Export students into JSON file" << endl
+         << "load   Import students from JSON file" << endl
+         << "help   Show this message" << endl 
+         << endl
+         << "Type 'exit' to quit" << endl;
 }
 
 int main() {
     cout << endl << accent << "Glu PR2. Student database." << endl << white;
     
-    int in;
-    while (in = launch_menu()) {
-        
-        student stdnt;
-        
-        switch (in) {
-            
-            case ADD:
-                if(create_student(&stdnt))
-                {
-                    cout << "Successfully created student." << endl;
-                    break;
-                }
-                cout << "Canceled or invalid data provided. " << endl;
-                break;
-            
-            case BRWS:
-                print_students();
-                break;
-                
-            case SAVE:
-                save("test.txt");
+    show_help();
+    
+    string in;
+    in = launch_menu();
+    
+    while (in != EXIT) 
+    {
+        if (in == ADD)
+        {
+            if(launch_create_student_dialog())
+            {
+                cout << "Successfully created student." << endl << endl;
+            }
+            else
+            {
+                cout << "Canceled or invalid data provided. " << endl << endl;
+            }
         }
+        else if (in == BRWS)
+        {
+            print_students();
+        }
+        else if (in == SAVE)
+        {
+            save_file();
+        }
+        else if (in == SAVE)
+        {
+            show_help();
+        }
+        else
+        {
+            cout << "Unknown command. Try typing 'help'." << endl;
+        }
+        in = launch_menu();
     }
     
-    
+    free_memory();
     return 0;
 }

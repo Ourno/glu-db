@@ -3,11 +3,8 @@
 #include <string>
 #include <ctime>
 #include <stdlib.h>
-#include <boost/date_time.hpp>
-#include <boost/date_time/gregorian/gregorian.hpp>
 
 using namespace std;
-using namespace boost;
 
 #include "common.h"
 
@@ -37,7 +34,6 @@ bool is_leap_year(int year)
 }
 
 bool read_date(string fieldname, tm* date) {
-    using namespace boost::gregorian;
     
     cout << "Enter " << fieldname << "(dd.mm.yyyy): " << accent;
     
