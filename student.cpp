@@ -1,4 +1,4 @@
-#define validate(code) if (!code) return false;
+#define validate(code) if (!code) { cout << "Canceled or invalid data provided. " << endl << endl; return; }
 
 #include <string.h>
 #include <iostream>
@@ -17,8 +17,7 @@ using namespace std;
 
 vector<student> students_vec;
 
-bool launch_create_student_dialog() {
-    string temp;
+void launch_create_student_dialog() {
     student* student_temp = new student;
     
     cout << "Creating student." << endl;
@@ -32,7 +31,7 @@ bool launch_create_student_dialog() {
     validate( read_flag ("social grant",    &student_temp->has_social_grant));
     validate( read_grant_type(&student_temp->grant_type));
     
-    bool confirmed = true;
+    bool confirmed;
     
     string in;
     cout << "Is data correct? (y/n): " << accent;
@@ -47,7 +46,16 @@ bool launch_create_student_dialog() {
         students_vec.push_back(*student_temp);
     }
     
-    return confirmed;
+    delete(*student_temp);
+    
+    if(confirmed)
+    {
+        cout << "Successfully created student." << endl << endl;
+    }
+    else
+    {
+        cout << "Canceled or invalid data provided. " << endl << endl;
+    }
 }
 
 void print_student(student* stdnt) {
@@ -132,6 +140,50 @@ void save_file()
     file << student_array_json.dump(4);
     
     file.close();
+    
+    cout << "Exported " << students_vec.size() << " student(s)." << endl << endl;
+}
+
+void load_file()
+{
+    cout << white << "File name (path): " << accent;
+    string path;
+    cin >> path;
+    cout << white;
+    
+    ifstream file;
+    file.open(path);
+    
+    stringstream buffer;
+    buffer << file.rdbuf();
+    string json_data(buffer.str());
+    
+    file.close();
+    
+    json student_list_json = json::parse(json_data);
+    
+    for (json::iterator it = student_list_json.begin(); it != student_list_json.end(); ++it) {
+        
+        json student_json = (json)*it;
+        student* student_temp = new student;
+        
+        student_temp->first_name  = student_json["first_name"];
+        student_temp->last_name   = student_json["last_name"];
+        student_temp->middle_name = student_json["middle_name"];
+        student_temp->study_group = student_json["study_group"];
+        
+        student_temp->has_paid_education = student_json["has_paid_education"];
+        student_temp->has_social_grant   = student_json["has_social_grant"];
+        
+        student_temp->grant_type = student_json["grant_type"];
+        
+        string birthdate = student_json["birthdate"];
+        strptime(birthdate.c_str(), "%d.%m.%Y", &student_temp->birthdate);
+        
+        students_vec.push_back(*student_temp);
+    }
+    
+    cout << "Imported " << student_list_json.size() << " student(s)." << endl << endl;
 }
 
 void free_memory()

@@ -24,6 +24,7 @@ const string BRWS = "ls";
 const string SAVE = "save";
 const string LOAD = "load";
 const string EXIT = "exit";
+const string HELP = "help";
 
 string launch_menu() {
     cout << "> " << accent;
@@ -60,24 +61,21 @@ int main() {
     {
         if (in == ADD)
         {
-            if(launch_create_student_dialog())
-            {
-                cout << "Successfully created student." << endl << endl;
-            }
-            else
-            {
-                cout << "Canceled or invalid data provided. " << endl << endl;
-            }
+            launch_create_student_dialog();
         }
         else if (in == BRWS)
         {
             print_students();
         }
+        else if (in == LOAD)
+        {
+            load_file();
+        }
         else if (in == SAVE)
         {
             save_file();
         }
-        else if (in == SAVE)
+        else if (in == HELP)
         {
             show_help();
         }
