@@ -7,6 +7,7 @@
 using namespace std;
 
 #include "common.h"
+#include "validation.h"
 
 string white = "\x1b[0m";
 string accent = "\x1b[92m";
@@ -23,16 +24,6 @@ bool read_field(string fieldname, string* field) {
     return !temp.empty();
 }
 
-bool is_that_stupid_day(tm* date)
-{
-    return (date->tm_mday == 29) && (date->tm_mon == 1);
-}
-
-bool is_leap_year(int year)
-{
-    return ((year & 3) == 0 && ((year % 25) != 0 || (year & 15) == 0));
-}
-
 bool read_date(string fieldname, tm* date) {
     
     cout << "Enter " << fieldname << "(dd.mm.yyyy): " << accent;
@@ -41,12 +32,13 @@ bool read_date(string fieldname, tm* date) {
     cin >> in;
     cout << white;
     
-    auto is_date_correct = strptime(in.c_str(), "%d.%m.%Y", date) != NULL;
+    if (is_date_string_valid(in)) 
+    {
+        strptime(in.c_str(), "%d.%m.%Y", date);
+        return true;
+    }
     
-    if (!is_date_correct) return false;
-    if (!is_leap_year(date->tm_year + 1900) && is_that_stupid_day(date)) return false;
-    
-    return true;
+    return false;
 }
 
 bool read_flag(string fieldname, bool* flag) {
@@ -56,7 +48,7 @@ bool read_flag(string fieldname, bool* flag) {
     cin >> result;
     cout << white;
     
-    *flag = result == "y" || result == "yes";
+    *flag = get_flag_value(result);
     
     return true;
 }
@@ -68,7 +60,10 @@ bool read_grant_type(int* grant_type) {
     cin >> result;
     cout << white;
     
-    *grant_type = stoi(result);
+    if (is_grant_type_valid(result)) {
+        *grant_type = stoi(result);
+        return true;
+    }
     
-    return (*grant_type == 0) || (*grant_type == 1) || (*grant_type == 2);
+    return false;
 }

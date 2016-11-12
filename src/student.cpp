@@ -46,7 +46,7 @@ void launch_create_student_dialog() {
         students_vec.push_back(*student_temp);
     }
     
-    delete(*student_temp);
+    delete(student_temp);
     
     if(confirmed)
     {
@@ -137,11 +137,26 @@ void save_file()
     ofstream file;
     file.open(path);
     
-    file << student_array_json.dump(4);
-    
-    file.close();
-    
-    cout << "Exported " << students_vec.size() << " student(s)." << endl << endl;
+    if (file.is_open())
+    {
+        file << student_array_json.dump(4);
+        if (!file) 
+        {
+            cout << "Error writing to file '" << path << "'" << endl;
+            return;
+        }
+        file.close();
+        if (!file) 
+        {
+            cout << "Error writing to file '" << path << "'" << endl;
+            return;
+        }
+        cout << "Exported " << students_vec.size() << " student(s)." << endl << endl;
+    }
+    else
+    {
+        cout << "Error writing to file '" << path << "'" << endl;
+    }
 }
 
 void load_file()
@@ -154,11 +169,30 @@ void load_file()
     ifstream file;
     file.open(path);
     
+    if (!file.is_open())
+    {
+        cout << "Error reading file '" << path << "'" << endl;
+        return;
+    }
+    
     stringstream buffer;
     buffer << file.rdbuf();
+    
+    if (!file) 
+    {
+        cout << "Error reading file '" << path << "'" << endl;
+        return;
+    }
+    
     string json_data(buffer.str());
     
     file.close();
+    
+    if (!file) 
+    {
+        cout << "Error reading file '" << path << "'" << endl;
+        return;
+    }
     
     json student_list_json = json::parse(json_data);
     

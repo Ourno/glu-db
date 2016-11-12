@@ -4,20 +4,30 @@ CC=g++
 CFLAGS=-c -Wall -std=c++11
 
 all: db
-	 ./db.out
+	 ./bin/db.out
 	 clear
 
-db: common.o student.o main.o
-	$(CC) common.o student.o main.o -o db.out
+test: cleantest ./obj/validation.o ./test/test.cpp
+	$(CC) ./test/test.cpp ./obj/validation.o -o ./test/test.out -lcheck -pthread -lrt
+	./test/test.out
 
-main.o: main.cpp
-	$(CC) $(CFLAGS) main.cpp
+db: ./obj/common.o ./obj/student.o ./obj/main.o ./obj/validation.o
+	$(CC) obj/common.o obj/student.o obj/main.o obj/validation.o -o bin/db.out
 
-student.o: student.cpp
-	$(CC) $(CFLAGS) student.cpp
+./obj/main.o: ./src/main.cpp
+	$(CC) $(CFLAGS) ./src/main.cpp -o ./obj/main.o
 
-common.o: common.cpp
-	$(CC) $(CFLAGS) common.cpp
+./obj/validation.o: ./src/validation.cpp
+	$(CC) $(CFLAGS) ./src/validation.cpp -o ./obj/validation.o
+
+./obj/student.o: ./src/student.cpp
+	$(CC) $(CFLAGS) ./src/student.cpp -o ./obj/student.o
+
+./obj/common.o: ./src/common.cpp
+	$(CC) $(CFLAGS) ./src/common.cpp -o ./obj/common.o
+
+cleantest:
+	rm -rf ./test/*.out
 
 clean:
-	rm -rf *.o db.out
+	rm -rf ./obj/*.o ./bin/db.out
