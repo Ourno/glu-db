@@ -1,9 +1,11 @@
 
 CC=g++
 
-CFLAGS=-c -Wall -std=c++11 -g
+CFLAGS=-c -Wall -std=c++11
 
 all: db
+	 ./bin/db.out
+	 clear
 
 test: cleantest ./obj/validation.o ./test/test.cpp
 	$(CC) ./test/test.cpp ./obj/validation.o -o ./test/test.out -lcheck -pthread -lrt
