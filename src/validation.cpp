@@ -1,6 +1,9 @@
 #include <string>
 #include <ctime>
 #include <stdlib.h>
+#include <string.h>
+
+#include "validation.h"
 
 using namespace std;
 

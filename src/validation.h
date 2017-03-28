@@ -8,5 +8,6 @@ using namespace std;
 bool is_date_string_valid(string datestring);
 bool get_flag_value(string str);
 bool is_grant_type_valid(string str);
+bool is_leap_year(int year);
 
 #endif
