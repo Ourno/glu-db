@@ -5,7 +5,7 @@
 #define HAVE_INTTYPES_H 1
 
 /* Define to 1 if you have the `check' library (-lcheck). */
-#define HAVE_LIBCHECK 1
+/* #undef HAVE_LIBCHECK */
 
 /* Define to 1 if you have the `rt' library (-lrt). */
 #define HAVE_LIBRT 1

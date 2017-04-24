@@ -10,13 +10,9 @@
 
 using namespace std;
 
-// База данных студентов колледжа. Поля: ФИО, группа, 
-// признак бюджетности, стипендия (нет/обычная/повышенная),
-// флаг наличия социальной стипендии, дата рождения
+// База заказов Интернет-магазина. Поля: ФИО заказчика, стоимость заказа, скидка (в процентах), адрес доставки.
 
-// http://stackoverflow.com/questions/14765155/how-can-i-easily-format-my-data-table-in-c
-
-#include "student.h"
+#include "order.h"
 #include "common.h"
 
 const string ADD  = "add";
@@ -40,17 +36,17 @@ string launch_menu() {
 void show_help()
 {
     cout << endl
-         << "add    Create a student" << endl
-         << "ls     Browse students" << endl
-         << "save   Export students into JSON file" << endl
-         << "load   Import students from JSON file" << endl
+         << "add    Create a order" << endl
+         << "ls     Browse orders" << endl
+         << "save   Export orders into JSON file" << endl
+         << "load   Import orders from JSON file" << endl
          << "help   Show this message" << endl 
          << endl
          << "Type 'exit' to quit" << endl;
 }
 
 int main() {
-    cout << endl << accent << "Glu PR2. Student database." << endl << white;
+    cout << endl << accent << "Glu PR2. Online shop order database." << endl << white;
     
     show_help();
     
@@ -61,11 +57,11 @@ int main() {
     {
         if (in == ADD)
         {
-            launch_create_student_dialog();
+            launch_create_order_dialog();
         }
         else if (in == BRWS)
         {
-            print_students();
+            print_orders();
         }
         else if (in == LOAD)
         {

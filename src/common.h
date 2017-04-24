@@ -8,11 +8,8 @@ using namespace std;
 extern string white;
 extern string accent;
 
-bool can_print_messages();
 bool read_field(string fieldname, string* field);
-bool read_date(string fieldname, tm* date);
-bool read_flag(string fieldname, bool* flag);
-bool read_grant_type(int* grant_type);
-bool is_leap_year(int year);
+bool read_total(string fieldname, int* total);
+bool read_discount(string fieldname, int* discount);
 
 #endif

@@ -5,9 +5,7 @@ using namespace std;
 #ifndef VALIDATION_INCLUDED
 #define VALIDATION_INCLUDED
 
-bool is_date_string_valid(string datestring);
-bool get_flag_value(string str);
-bool is_grant_type_valid(string str);
-bool is_leap_year(int year);
+bool is_discount_valid(int discount);
+bool is_total_valid(int total) ;
 
 #endif

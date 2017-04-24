@@ -24,44 +24,34 @@ bool read_field(string fieldname, string* field) {
     return !temp.empty();
 }
 
-bool read_date(string fieldname, tm* date) {
+bool read_total(string fieldname, int* total) {
     
-    cout << "Enter " << fieldname << "(dd.mm.yyyy): " << accent;
+    cout << "Enter " << fieldname << ": " << accent;
     
-    string in;
+    int in;
     cin >> in;
     cout << white;
     
-    if (is_date_string_valid(in)) 
+    if (is_total_valid(in)) 
     {
-        strptime(in.c_str(), "%d.%m.%Y", date);
+        *total = in;
         return true;
     }
     
     return false;
 }
 
-bool read_flag(string fieldname, bool* flag) {
-    cout << "Does have " << fieldname << "? (y/n): " << accent;
+bool read_discount(string fieldname, int* discount) {
     
-    string result;
-    cin >> result;
+    cout << "Enter " << fieldname << ": " << accent;
+    
+    int in;
+    cin >> in;
     cout << white;
     
-    *flag = get_flag_value(result);
-    
-    return true;
-}
-
-bool read_grant_type(int* grant_type) {
-    cout << "Enter grant type (0 - none, 1 - standart, 2 - extra): " << accent;
-    
-    string result;
-    cin >> result;
-    cout << white;
-    
-    if (is_grant_type_valid(result)) {
-        *grant_type = stoi(result);
+    if (is_discount_valid(in)) 
+    {
+        *discount = in;
         return true;
     }
     
