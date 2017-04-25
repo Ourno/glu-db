@@ -8685,16 +8685,16 @@ calls=4 113
 * 24
 * 8
 
-fn=(1460) _ZNSt16allocator_traitsISaI7studentEE9constructIS0_IRKS0_EEEvRS1_PT_DpOT0_
+fn=(1460) _ZNSt16allocator_traitsISaI7orderEE9constructIS0_IRKS0_EEEvRS1_PT_DpOT0_
 526 12
 +1 6
 cfi=(150)
-cfn=(1458) student const& std::forward<student const&>(std::remove_reference<student const&>::type&)
+cfn=(1458) order const& std::forward<order const&>(std::remove_reference<order const&>::type&)
 calls=2 76 
 * 12
 * 12
 cfi=(108)
-cfn=(1462) _ZN9__gnu_cxx13new_allocatorI7studentE9constructIS1_IRKS1_EEEvPT_DpOT0_
+cfn=(1462) _ZN9__gnu_cxx13new_allocatorI7orderE9constructIS1_IRKS1_EEEvPT_DpOT0_
 calls=2 119 
 * 368
 * 4
@@ -8784,11 +8784,11 @@ calls=16 119
 * 10204
 * 32
 
-fn=(1454) std::allocator_traits<std::allocator<student> >::allocate(std::allocator<student>&, unsigned long)
+fn=(1454) std::allocator_traits<std::allocator<order> >::allocate(std::allocator<order>&, unsigned long)
 487 10
 +1 12
 cfi=(108)
-cfn=(1456) __gnu_cxx::new_allocator<student>::allocate(unsigned long, void const*)
+cfn=(1456) __gnu_cxx::new_allocator<order>::allocate(unsigned long, void const*)
 calls=2 99 
 * 439
 * 4
@@ -8811,11 +8811,11 @@ calls=2 109
 * 206
 * 4
 
-fn=(1444) std::allocator_traits<std::allocator<student> >::max_size(std::allocator<student> const&)
+fn=(1444) std::allocator_traits<std::allocator<order> >::max_size(std::allocator<order> const&)
 547 16
 +1 12
 cfi=(108)
-cfn=(1446) __gnu_cxx::new_allocator<student>::max_size() const
+cfn=(1446) __gnu_cxx::new_allocator<order>::max_size() const
 calls=4 113 
 * 24
 * 8
@@ -8852,11 +8852,11 @@ calls=32 124
 * 7604
 * 64
 
-fn=(3234) std::allocator_traits<std::allocator<student> >::deallocate(std::allocator<student>&, student*, unsigned long)
+fn=(3234) std::allocator_traits<std::allocator<order> >::deallocate(std::allocator<order>&, order*, unsigned long)
 513 12
 +1 12
 cfi=(108)
-cfn=(3236) __gnu_cxx::new_allocator<student>::deallocate(student*, unsigned long)
+cfn=(3236) __gnu_cxx::new_allocator<order>::deallocate(order*, unsigned long)
 calls=2 109 
 * 718
 * 4
@@ -8871,17 +8871,17 @@ calls=32 109
 * 64
 
 fl=(147) /usr/include/c++/4.9/bits/vector.tcc
-fn=(1436) void std::vector<student, std::allocator<student> >::_M_emplace_back_aux<student const&>(student const&)
+fn=(1436) void std::vector<order, std::allocator<order> >::_M_emplace_back_aux<order const&>(order const&)
 407 12
 +4 10
 cfi=(106) /usr/include/c++/4.9/bits/stl_vector.h
-cfn=(1438) std::vector<student, std::allocator<student> >::_M_check_len(unsigned long, char const*) const
+cfn=(1438) std::vector<order, std::allocator<order> >::_M_check_len(unsigned long, char const*) const
 calls=2 1422 
 * 387
 * 2
 +1 10
 cfi=(106)
-cfn=(1452) std::_Vector_base<student, std::allocator<student> >::_M_allocate(unsigned long)
+cfn=(1452) std::_Vector_base<order, std::allocator<order> >::_M_allocate(unsigned long)
 calls=2 167 
 * 495
 * 2
@@ -8894,7 +8894,7 @@ calls=2 76
 * 2
 -1 6
 cfi=(106)
-cfn=(1448) std::vector<student, std::allocator<student> >::size() const
+cfn=(1448) std::vector<order, std::allocator<order> >::size() const
 calls=2 654 
 * 32
 * 2
@@ -8907,13 +8907,13 @@ calls=2 526
 +2 2
 +5 6
 cfi=(106)
-cfn=(1472) std::_Vector_base<student, std::allocator<student> >::_M_get_Tp_allocator()
+cfn=(1472) std::_Vector_base<order, std::allocator<order> >::_M_get_Tp_allocator()
 calls=2 113 
 * 12
 * 10
 -3 6
 cfi=(152) /usr/include/c++/4.9/bits/stl_uninitialized.h
-cfn=(1474) student* std::__uninitialized_move_if_noexcept_a<student*, student*, std::allocator<student> >(student*, student*, student*, std::allocator<student>&)
+cfn=(1474) order* std::__uninitialized_move_if_noexcept_a<order*, order*, std::allocator<order> >(order*, order*, order*, std::allocator<order>&)
 calls=2 295 
 * 559
 * 2
@@ -8926,13 +8926,13 @@ calls=2 113
 * 10
 -1 6
 cfi=(153) /usr/include/c++/4.9/bits/stl_construct.h
-cfn=(1492) void std::_Destroy<student*, student>(student*, student*, std::allocator<student>&)
+cfn=(1492) void std::_Destroy<order*, order>(order*, order*, std::allocator<order>&)
 calls=2 148 
 * 141
 +4 30
 -2 6
 cfi=(106)
-cfn=(1498) std::_Vector_base<student, std::allocator<student> >::_M_deallocate(student*, unsigned long)
+cfn=(1498) std::_Vector_base<order, std::allocator<order> >::_M_deallocate(order*, unsigned long)
 calls=2 174 
 * 139
 +3 6
@@ -9148,8 +9148,8 @@ cfi=(109) /home/ubuntu/cpp/4_course_1_semester/2/./src/main.cpp
 cfn=(972) _GLOBAL__sub_I__Z11launch_menuv
 calls=1 91 
 0 2600
-cfi=(105) /home/ubuntu/cpp/4_course_1_semester/2/./src/student.cpp
-cfn=(958) _GLOBAL__sub_I_students_vec
+cfi=(105) /home/ubuntu/cpp/4_course_1_semester/2/./src/order.cpp
+cfn=(958) _GLOBAL__sub_I_orders_vec
 calls=1 226 
 0 236
 cfi=(89) /home/ubuntu/cpp/4_course_1_semester/2/./src/common.cpp
@@ -9511,11 +9511,11 @@ fn=(3014) std::vector<nlohmann::basic_json<std::map, std::vector, std::string, b
 76 6
 +1 6
 
-fn=(3218) std::remove_reference<student&>::type&& std::move<student&>(student&)
+fn=(3218) std::remove_reference<order&>::type&& std::move<order&>(order&)
 101 3
 +1 3
 
-fn=(3220) student* std::__addressof<student>(student&)
+fn=(3220) order* std::__addressof<order>(order&)
 47 12
 +3 4
 +1 8
@@ -9604,7 +9604,7 @@ fn=(2976)
 +3 257
 +1 514
 
-fn=(3224) student&& std::forward<student>(std::remove_reference<student>::type&)
+fn=(3224) order&& std::forward<order>(std::remove_reference<order>::type&)
 76 3
 +1 3
 
@@ -9657,10 +9657,10 @@ calls=6 -35
 * 30
 * 12
 
-fn=(968) std::allocator<student>::allocator()
+fn=(968) std::allocator<order>::allocator()
 113 7
 cfi=(108)
-cfn=(970) __gnu_cxx::new_allocator<student>::new_allocator()
+cfn=(970) __gnu_cxx::new_allocator<order>::new_allocator()
 calls=1 -34 
 * 5
 * 2
@@ -9681,10 +9681,10 @@ calls=8 -34
 * 40
 * 16
 
-fn=(3314) std::allocator<student>::~allocator()
+fn=(3314) std::allocator<order>::~allocator()
 121 7
 cfi=(108)
-cfn=(3316) __gnu_cxx::new_allocator<student>::~new_allocator()
+cfn=(3316) __gnu_cxx::new_allocator<order>::~new_allocator()
 calls=1 -35 
 * 5
 * 2
@@ -11537,7 +11537,7 @@ calls=257 -95
 +1 514
 
 fl=(105)
-fn=(1338) launch_create_student_dialog()
+fn=(1338) launch_create_order_dialog()
 20 5
 +1 2
 cob=(7)
@@ -11552,8 +11552,8 @@ calls=1 +13
 * 760
 * 5
 * 3
-cfi=(139) /home/ubuntu/cpp/4_course_1_semester/2/./src/student.h
-cfn=(1344) student::student()
+cfi=(139) /home/ubuntu/cpp/4_course_1_semester/2/./src/order.h
+cfn=(1344) order::order()
 calls=1 -11 
 * 45
 * 1
@@ -11859,12 +11859,12 @@ calls=1 2537
 +3 2
 +1 4
 cfi=(106)
-cfn=(1434) std::vector<student, std::allocator<student> >::push_back(student const&)
+cfn=(1434) std::vector<order, std::allocator<order> >::push_back(order const&)
 calls=1 913 
 * 1032
 +3 5
 cfi=(139)
-cfn=(1500) student::~student()
+cfn=(1500) order::~order()
 calls=1 -39 
 * 77
 * 2
@@ -11907,7 +11907,7 @@ calls=1 -58
 * 1
 +1 5
 
-fn=(1568) print_student(student*)
+fn=(1568) print_order(order*)
 61 21
 +1 9
 cob=(7)
@@ -12207,7 +12207,7 @@ calls=1 -17
 fe=(105)
 -56 2
 cfi=(106)
-cfn=(962) std::vector<student, std::allocator<student> >::vector()
+cfn=(962) std::vector<order, std::allocator<order> >::vector()
 calls=1 253 
 * 47
 * 4
@@ -12223,12 +12223,12 @@ fn=(3258) free_memory()
 224 2
 +1 2
 cfi=(106)
-cfn=(3260) std::vector<student, std::allocator<student> >::clear()
+cfn=(3260) std::vector<order, std::allocator<order> >::clear()
 calls=1 1211 
 * 668
 +1 2
 
-fn=(1502) print_students()
+fn=(1502) print_orders()
 91 8
 +1 4
 cfi=(106)
@@ -12278,22 +12278,22 @@ calls=2 -92
 +2 2
 +1 8
 cfi=(106)
-cfn=(1536) std::vector<student, std::allocator<student> >::begin()
+cfn=(1536) std::vector<order, std::allocator<order> >::begin()
 calls=2 547 
 * 44
 * 8
 cfi=(106)
-cfn=(1540) std::vector<student, std::allocator<student> >::end()
+cfn=(1540) std::vector<order, std::allocator<order> >::end()
 calls=2 565 
 * 46
 * 13
 cfi=(135)
-cfn=(1546) __gnu_cxx::__normal_iterator<student*, std::vector<student, std::allocator<student> > >::operator*() const
+cfn=(1546) __gnu_cxx::__normal_iterator<order*, std::vector<order, std::allocator<order> > >::operator*() const
 calls=3 741 
 * 21
 * 15
 cfi=(139)
-cfn=(1468) student::student(student const&)
+cfn=(1468) order::order(order const&)
 calls=3 -85 
 * 423
 +1 18
@@ -12333,12 +12333,12 @@ calls=3 -89
 * 231
 -4 9
 cfi=(135)
-cfn=(1572) __gnu_cxx::__normal_iterator<student*, std::vector<student, std::allocator<student> > >::operator++()
+cfn=(1572) __gnu_cxx::__normal_iterator<order*, std::vector<order, std::allocator<order> > >::operator++()
 calls=3 749 
 * 33
 * 25
 cfi=(135)
-cfn=(1542) bool __gnu_cxx::operator!=<student*, std::vector<student, std::allocator<student> > >(__gnu_cxx::__normal_iterator<student*, std::vector<student, std::allocator<student> > > const&, __gnu_cxx::__normal_iterator<student*, std::vector<student, std::allocator<student> > > const&)
+cfn=(1542) bool __gnu_cxx::operator!=<order*, std::vector<order, std::allocator<order> > >(__gnu_cxx::__normal_iterator<order*, std::vector<order, std::allocator<order> > > const&, __gnu_cxx::__normal_iterator<order*, std::vector<order, std::allocator<order> > > const&)
 calls=5 829 
 * 160
 * 12
@@ -13846,7 +13846,7 @@ fn=(3158) __gnu_cxx::__normal_iterator<nlohmann::basic_json<std::map, std::vecto
 724 18
 +1 24
 
-fn=(1544) __gnu_cxx::__normal_iterator<student*, std::vector<student, std::allocator<student> > >::base() const
+fn=(1544) __gnu_cxx::__normal_iterator<order*, std::vector<order, std::allocator<order> > >::base() const
 793 42
 +1 42
 
@@ -13872,10 +13872,10 @@ calls=3 -39
 * 18
 * 21
 
-fn=(1476) std::move_iterator<student*> std::__make_move_if_noexcept_iterator<student*, std::move_iterator<student*> >(student*)
+fn=(1476) std::move_iterator<order*> std::__make_move_if_noexcept_iterator<order*, std::move_iterator<order*> >(order*)
 1149 16
 +1 20
-cfn=(1478) std::move_iterator<student*>::move_iterator(student*)
+cfn=(1478) std::move_iterator<order*>::move_iterator(order*)
 calls=4 967 
 * 36
 * 12
@@ -13890,7 +13890,7 @@ fn=(1572)
 +1 4
 +1 8
 
-fn=(1538) __gnu_cxx::__normal_iterator<student*, std::vector<student, std::allocator<student> > >::__normal_iterator(student* const&)
+fn=(1538) __gnu_cxx::__normal_iterator<order*, std::vector<order, std::allocator<order> > >::__normal_iterator(order* const&)
 728 24
 +1 36
 
@@ -14000,7 +14000,7 @@ fn=(1264)
 793 84
 +1 84
 
-fn=(1490) std::move_iterator<student*>::base() const
+fn=(1490) std::move_iterator<order*>::base() const
 975 18
 +1 24
 
@@ -14018,15 +14018,15 @@ fn=(1278) __gnu_cxx::__normal_iterator<char*, std::string>::operator++()
 +1 7
 +1 14
 
-fn=(1486) bool std::operator!=<student*>(std::move_iterator<student*> const&, std::move_iterator<student*> const&)
+fn=(1486) bool std::operator!=<order*>(std::move_iterator<order*> const&, std::move_iterator<order*> const&)
 1066 15
 +2 15
-cfn=(1488) bool std::operator==<student*>(std::move_iterator<student*> const&, std::move_iterator<student*> const&)
+cfn=(1488) bool std::operator==<order*>(std::move_iterator<order*> const&, std::move_iterator<order*> const&)
 calls=3 -14 
 * 99
 * 9
 
-fn=(3216) std::move_iterator<student*>::operator*() const
+fn=(3216) std::move_iterator<order*>::operator*() const
 979 4
 +1 4
 cfi=(150)
@@ -14035,7 +14035,7 @@ calls=1 101
 * 6
 * 2
 
-fn=(3230) std::move_iterator<student*>::operator++()
+fn=(3230) std::move_iterator<order*>::operator++()
 987 3
 +2 5
 +1 1
@@ -15115,7 +15115,7 @@ calls=2 -11
 -1 20
 +2 8
 
-fn=(3222) _ZSt10_ConstructI7studentIS0_EEvPT_DpOT0_
+fn=(3222) _ZSt10_ConstructI7orderIS0_EEvPT_DpOT0_
 74 6
 -74 3
 fi=(87)
@@ -15132,15 +15132,15 @@ calls=1 147
 0 5
 fi=(87)
 cfi=(139)
-cfn=(3228) student::student(student&&)
+cfn=(3228) order::order(order&&)
 calls=1 10 
 0 89
 0 4
 
-fn=(1494) void std::_Destroy<student*>(student*, student*)
+fn=(1494) void std::_Destroy<order*>(order*, order*)
 122 20
 +4 20
-cfn=(1496) void std::_Destroy_aux<false>::__destroy<student*>(student*, student*)
+cfn=(1496) void std::_Destroy_aux<false>::__destroy<order*>(order*, order*)
 calls=4 -26 
 * 707
 +2 8
@@ -15154,7 +15154,7 @@ cfn=(3220)
 calls=3 -56 
 * 18
 * 6
-cfn=(3232) void std::_Destroy<student>(student*)
+cfn=(3232) void std::_Destroy<order>(order*)
 calls=3 -11 
 * 618
 -1 24
@@ -18588,7 +18588,7 @@ cfn=(1476)
 calls=2 1149 
 * 42
 * 14
-cfn=(1480) student* std::__uninitialized_copy_a<std::move_iterator<student*>, student*, student>(std::move_iterator<student*>, std::move_iterator<student*>, student*, std::allocator<student>&)
+cfn=(1480) order* std::__uninitialized_copy_a<std::move_iterator<order*>, order*, order>(std::move_iterator<order*>, std::move_iterator<order*>, order*, std::allocator<order>&)
 calls=2 -25 
 * 423
 +1 8
@@ -18619,7 +18619,7 @@ calls=2 -58
 * 138
 +1 4
 
-fn=(1484) student* std::__uninitialized_copy<false>::__uninit_copy<std::move_iterator<student*>, student*>(std::move_iterator<student*>, std::move_iterator<student*>, student*)
+fn=(1484) order* std::__uninitialized_copy<false>::__uninit_copy<std::move_iterator<order*>, order*>(std::move_iterator<order*>, std::move_iterator<order*>, order*)
 68 14
 +3 4
 +3 2
@@ -18660,7 +18660,7 @@ calls=2 1066
 fn=(1480)
 277 14
 +2 12
-cfn=(1482) student* std::uninitialized_copy<std::move_iterator<student*>, student*>(std::move_iterator<student*>, std::move_iterator<student*>, student*)
+cfn=(1482) order* std::uninitialized_copy<std::move_iterator<order*>, order*>(std::move_iterator<order*>, std::move_iterator<order*>, order*)
 calls=2 107 
 * 393
 * 4
@@ -19502,7 +19502,7 @@ fl=(106)
 fn=(1438)
 1422 14
 +2 6
-cfn=(1440) std::vector<student, std::allocator<student> >::max_size() const
+cfn=(1440) std::vector<order, std::allocator<order> >::max_size() const
 calls=2 659 
 * 64
 * 8
@@ -19550,7 +19550,7 @@ calls=1 -39
 fn=(3260)
 1211 4
 +1 6
-cfn=(3262) std::vector<student, std::allocator<student> >::_M_erase_at_end(student*)
+cfn=(3262) std::vector<order, std::allocator<order> >::_M_erase_at_end(order*)
 calls=1 1436 
 * 656
 * 2
@@ -19625,7 +19625,7 @@ calls=2 +98
 * 20
 * 6
 
-fn=(3310) std::_Vector_base<student, std::allocator<student> >::~_Vector_base()
+fn=(3310) std::_Vector_base<order, std::allocator<order> >::~_Vector_base()
 159 4
 +2 14
 -1 4
@@ -19633,7 +19633,7 @@ cfn=(1498)
 calls=1 +14 
 * 649
 +1 3
-cfn=(3312) std::_Vector_base<student, std::allocator<student> >::_Vector_impl::~_Vector_impl()
+cfn=(3312) std::_Vector_base<order, std::allocator<order> >::_Vector_impl::~_Vector_impl()
 calls=1 -82 
 * 23
 * 2
@@ -19641,7 +19641,7 @@ calls=1 -82
 fn=(962)
 253 4
 +4 3
-cfn=(964) std::_Vector_base<student, std::allocator<student> >::_Vector_base()
+cfn=(964) std::_Vector_base<order, std::allocator<order> >::_Vector_base()
 calls=1 124 
 * 38
 * 2
@@ -19686,7 +19686,7 @@ calls=1 +42
 fn=(1440)
 659 16
 +1 12
-cfn=(1442) std::_Vector_base<student, std::allocator<student> >::_M_get_Tp_allocator() const
+cfn=(1442) std::_Vector_base<order, std::allocator<order> >::_M_get_Tp_allocator() const
 calls=4 117 
 * 24
 * 8
@@ -19798,7 +19798,7 @@ calls=1 728
 * 10
 * 3
 
-fn=(3308) std::vector<student, std::allocator<student> >::~vector()
+fn=(3308) std::vector<order, std::allocator<order> >::~vector()
 423 4
 +2 3
 cfn=(1472)
@@ -19816,7 +19816,7 @@ calls=1 159
 * 699
 * 2
 
-fn=(966) std::_Vector_base<student, std::allocator<student> >::_Vector_impl::_Vector_impl()
+fn=(966) std::_Vector_base<order, std::allocator<order> >::_Vector_impl::_Vector_impl()
 86 4
 +1 3
 cfi=(107)

@@ -6,135 +6,66 @@ using namespace std;
 
 #include "../src/validation.h"
 
-START_TEST (test_empty_date_is_not_valid)
+START_TEST (test_negative_total_is_invalid)
 {
-    string date = "";
+    int total = -5;
     
-    bool is_valid = is_date_string_valid(date);
+    bool is_valid = is_total_valid(total);
     
     ck_assert(!is_valid);
 }
 END_TEST
 
-START_TEST (test_date_99_99_2016_is_not_valid)
+START_TEST (test_100_total_is_valid)
 {
-    string date = "99.99.2016";
+    int total = 100;
     
-    bool is_valid = is_date_string_valid(date);
-    
-    ck_assert(!is_valid);
-}
-END_TEST
-
-START_TEST (test_date_01_01_1970_is_valid)
-{
-    string date = "01.01.1970";
-    
-    bool is_valid = is_date_string_valid(date);
+    bool is_valid = is_total_valid(total);
     
     ck_assert(is_valid);
 }
 END_TEST
 
-START_TEST (test_date_29_02_2000_is_valid)
+START_TEST (test_negative_discount_is_invalid)
 {
-    string date = "29.02.2000";
+    int discount = -5;
     
-    bool is_valid = is_date_string_valid(date);
-    
-    ck_assert(is_valid);
-}
-END_TEST
-
-START_TEST (test_date_29_02_2001_is_not_valid)
-{
-    string date = "29.02.2001";
-    
-    bool is_valid = is_date_string_valid(date);
+    bool is_valid = is_discount_valid(discount);
     
     ck_assert(!is_valid);
 }
 END_TEST
 
-START_TEST (test_yes_string_is_a_positive_flag)
+START_TEST (test_over_100_discount_is_invalid)
 {
-    string flag_str = "yes";
+    int discount = 100500;
     
-    bool result = get_flag_value(flag_str);
+    bool is_valid = is_discount_valid(discount);
     
-    ck_assert(result);
+    ck_assert(!is_valid);
 }
 END_TEST
 
-START_TEST (test_y_string_is_a_positive_flag)
+START_TEST (test_100_discount_is_valid)
 {
-    string flag_str = "y";
+    int discount = 100;
     
-    bool result = get_flag_value(flag_str);
+    bool is_valid = is_discount_valid(discount);
     
-    ck_assert(result);
+    ck_assert(is_valid);
 }
 END_TEST
 
-START_TEST (test_NO_GOD_NO_string_is_a_negative_flag)
+START_TEST (test_0_discount_is_valid)
 {
-    string flag_str = "NO! GOD! NO!";
+    int discount = 0;
     
-    bool result = get_flag_value(flag_str);
+    bool is_valid = is_discount_valid(discount);
     
-    ck_assert(!result);
+    ck_assert(is_valid);
 }
 END_TEST
 
-START_TEST (test_n_string_is_a_negative_flag)
-{
-    string flag_str = "n";
-    
-    bool result = get_flag_value(flag_str);
-    
-    ck_assert(!result);
-}
-END_TEST
-
-START_TEST (test_0_string_is_a_valid_grant_type)
-{
-    string str = "0";
-    
-    bool result = is_grant_type_valid(str);
-    
-    ck_assert(result);
-}
-END_TEST
-
-START_TEST (test_1_string_is_a_valid_grant_type)
-{
-    string str = "1";
-    
-    bool result = is_grant_type_valid(str);
-    
-    ck_assert(result);
-}
-END_TEST
-
-START_TEST (test_2_string_is_a_valid_grant_type)
-{
-    string str = "2";
-    
-    bool result = is_grant_type_valid(str);
-    
-    ck_assert(result);
-}
-END_TEST
-
-START_TEST (test_3_string_is_not_a_valid_grant_type)
-{
-    string str = "3";
-    
-    bool result = is_grant_type_valid(str);
-    
-    ck_assert(!result);
-}
-END_TEST
 
 Suite* validation_suite(void)
 {
@@ -146,21 +77,12 @@ Suite* validation_suite(void)
     /* Core test case */
     tc_core = tcase_create("Core");
 
-    tcase_add_test(tc_core, test_empty_date_is_not_valid);
-    tcase_add_test(tc_core, test_date_99_99_2016_is_not_valid);
-    tcase_add_test(tc_core, test_date_01_01_1970_is_valid);
-    tcase_add_test(tc_core, test_date_29_02_2000_is_valid);
-    tcase_add_test(tc_core, test_date_29_02_2001_is_not_valid);
-    
-    tcase_add_test(tc_core, test_yes_string_is_a_positive_flag);
-    tcase_add_test(tc_core, test_y_string_is_a_positive_flag);
-    tcase_add_test(tc_core, test_NO_GOD_NO_string_is_a_negative_flag);
-    tcase_add_test(tc_core, test_n_string_is_a_negative_flag);
-    
-    tcase_add_test(tc_core, test_0_string_is_a_valid_grant_type);
-    tcase_add_test(tc_core, test_1_string_is_a_valid_grant_type);
-    tcase_add_test(tc_core, test_2_string_is_a_valid_grant_type);
-    tcase_add_test(tc_core, test_3_string_is_not_a_valid_grant_type);
+    tcase_add_test(tc_core, test_negative_total_is_invalid);
+    tcase_add_test(tc_core, test_100_total_is_valid);
+    tcase_add_test(tc_core, test_negative_discount_is_invalid);
+    tcase_add_test(tc_core, test_over_100_discount_is_invalid);
+    tcase_add_test(tc_core, test_100_discount_is_valid);
+    tcase_add_test(tc_core, test_0_discount_is_valid);
     suite_add_tcase(s, tc_core);
 
     return s;

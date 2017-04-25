@@ -733,6 +733,32 @@ ps-am:
 
 uninstall-am:
 
+CC_old=g++
+
+CFLAGS_old=-c -Wall -std=c++11 -g
+
+test: cleantest ./obj/validation.o ./test/test.cpp
+	$(CC_old) ./test/test.cpp ./obj/validation.o -o ./test/test.out -lcheck -pthread -lrt
+	./test/test.out
+
+db: ./obj/common.o ./obj/order.o ./obj/main.o ./obj/validation.o
+	$(CC_old) obj/common.o obj/order.o obj/main.o obj/validation.o -o bin/db.out
+
+./obj/main.o: ./src/main.cpp
+	$(CC_old) $(CFLAGS_old) ./src/main.cpp -o ./obj/main.o
+
+./obj/validation.o: ./src/validation.cpp
+	$(CC_old) $(CFLAGS_old) ./src/validation.cpp -o ./obj/validation.o
+
+./obj/order.o: ./src/order.cpp
+	$(CC_old) $(CFLAGS_old) ./src/order.cpp -o ./obj/order.o
+
+./obj/common.o: ./src/common.cpp
+	$(CC_old) $(CFLAGS_old) ./src/common.cpp -o ./obj/common.o
+
+cleantest:
+	rm -rf ./test/*.out
+
 .MAKE: $(am__recursive_targets) all install-am install-strip
 
 .PHONY: $(am__recursive_targets) CTAGS GTAGS TAGS all all-am \
