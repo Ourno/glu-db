@@ -7,10 +7,63 @@
 
 using namespace std;
 
-bool is_total_valid(int total) {
-    return total >= 0;
+bool is_that_stupid_day(tm* date)
+{
+    return (date->tm_mday == 29) && (date->tm_mon == 1);
 }
 
-bool is_discount_valid(int discount) {
-    return discount >= 0 && discount <= 100;
+bool is_leap_year(int year) // http://stackoverflow.com/questions/3220163/how-to-find-leap-year-programatically-in-c/11595914#11595914
+{
+    return 
+        ((year & 3) == 0 && // год кратен 4
+        (
+            (year % 25) != 0 // год не кратен 25
+            || 
+            (year & 15) == 0) // год кратен 15
+        );
+}
+
+bool is_date_string_valid(string datestring)
+{
+    // создаём структуру для хранения даты
+    tm* date = new tm;
+    bool result;
+    
+    bool is_date_correct = strptime(datestring.c_str(), "%d.%m.%Y", date) != NULL;
+    
+    if (!is_date_correct) 
+    {
+        result = false;
+    }
+    else if (!is_leap_year(date->tm_year + 1900) && is_that_stupid_day(date)) 
+    {
+        result = false;
+    }
+    else
+    {
+        result = true;
+    }
+    
+    delete(date);
+    return result;
+}
+
+bool is_time_string_valid(string timestring)
+{
+    tm* date = new tm;
+    bool result;
+    
+    bool is_time_correct = strptime(timestring.c_str(), "%H:%M", date) != NULL;
+    
+    if (!is_time_correct) 
+    {
+        result = false;
+    }
+    else
+    {
+        result = true;
+    }
+    
+    delete(date);
+    return result;
 }

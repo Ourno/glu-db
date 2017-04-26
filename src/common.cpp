@@ -24,34 +24,35 @@ bool read_field(string fieldname, string* field) {
     return !temp.empty();
 }
 
-bool read_total(string fieldname, int* total) {
+bool read_date(string fieldname, tm* date) {
     
-    cout << "Enter " << fieldname << ": " << accent;
+    cout << "Enter " << fieldname << "(dd.mm.yyyy): " << accent;
     
-    int in;
+    string in;
     cin >> in;
     cout << white;
     
-    if (is_total_valid(in)) 
+    if (is_date_string_valid(in)) 
     {
-        *total = in;
+        strptime(in.c_str(), "%d.%m.%Y", date);
         return true;
     }
     
     return false;
 }
 
-bool read_discount(string fieldname, int* discount) {
+
+bool read_time(string fieldname, tm* date) {
     
-    cout << "Enter " << fieldname << ": " << accent;
+    cout << "Enter " << fieldname << "(h:mm): " << accent;
     
-    int in;
+    string in;
     cin >> in;
     cout << white;
     
-    if (is_discount_valid(in)) 
+    if (is_time_string_valid(in)) 
     {
-        *discount = in;
+        strptime(in.c_str(), "%H:%M", date);
         return true;
     }
     

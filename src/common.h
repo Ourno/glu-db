@@ -9,7 +9,7 @@ extern string white;
 extern string accent;
 
 bool read_field(string fieldname, string* field);
-bool read_total(string fieldname, int* total);
-bool read_discount(string fieldname, int* discount);
+bool read_date(string fieldname, tm* date);
+bool read_time(string fieldname, tm* date);
 
 #endif

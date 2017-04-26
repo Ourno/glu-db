@@ -523,7 +523,7 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/c++/4.8/iostream \
  /usr/include/boost/algorithm/string/detail/find_format_all.hpp \
  /usr/include/boost/algorithm/string/formatter.hpp \
  /usr/include/boost/algorithm/string/detail/formatter.hpp \
- /usr/include/boost/algorithm/string/erase.hpp order.h common.h
+ /usr/include/boost/algorithm/string/erase.hpp lesson.h common.h
 
 /usr/include/stdc-predef.h:
 
@@ -1719,6 +1719,6 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/c++/4.8/iostream \
 
 /usr/include/boost/algorithm/string/erase.hpp:
 
-order.h:
+lesson.h:
 
 common.h:

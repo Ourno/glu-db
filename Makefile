@@ -127,7 +127,7 @@ AM_RECURSIVE_TARGETS = $(am__recursive_targets:-recursive=) TAGS CTAGS \
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) \
 	$(LISP)config.h.in
 # Read a list of newline-separated strings from the standard input,
-# and print each of them once, without duplicates.  Input order is
+# and print each of them once, without duplicates.  Input lesson is
 # *not* preserved.
 am__uniquify_input = $(AWK) '\
   BEGIN { nonempty = 0; } \
@@ -188,12 +188,12 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/ubuntu/workspace/PR2/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/ubuntu/workspace/pr2/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /home/ubuntu/workspace/PR2/missing autoconf
-AUTOHEADER = ${SHELL} /home/ubuntu/workspace/PR2/missing autoheader
-AUTOMAKE = ${SHELL} /home/ubuntu/workspace/PR2/missing automake-1.14
+AUTOCONF = ${SHELL} /home/ubuntu/workspace/pr2/missing autoconf
+AUTOHEADER = ${SHELL} /home/ubuntu/workspace/pr2/missing autoheader
+AUTOMAKE = ${SHELL} /home/ubuntu/workspace/pr2/missing automake-1.14
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -221,7 +221,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = -lrt 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/ubuntu/workspace/PR2/missing makeinfo
+MAKEINFO = ${SHELL} /home/ubuntu/workspace/pr2/missing makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = glu_pr2_db
@@ -237,10 +237,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = 
 VERSION = 1.0
-abs_builddir = /home/ubuntu/workspace/PR2
-abs_srcdir = /home/ubuntu/workspace/PR2
-abs_top_builddir = /home/ubuntu/workspace/PR2
-abs_top_srcdir = /home/ubuntu/workspace/PR2
+abs_builddir = /home/ubuntu/workspace/pr2
+abs_srcdir = /home/ubuntu/workspace/pr2
+abs_top_builddir = /home/ubuntu/workspace/pr2
+abs_top_srcdir = /home/ubuntu/workspace/pr2
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 am__include = include
@@ -260,7 +260,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/ubuntu/workspace/PR2/install-sh
+install_sh = ${SHELL} /home/ubuntu/workspace/pr2/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -731,8 +731,6 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am:
-
 CC_old=g++
 
 CFLAGS_old=-c -Wall -std=c++11 -g
@@ -741,8 +739,8 @@ test: cleantest ./obj/validation.o ./test/test.cpp
 	$(CC_old) ./test/test.cpp ./obj/validation.o -o ./test/test.out -lcheck -pthread -lrt
 	./test/test.out
 
-db: ./obj/common.o ./obj/order.o ./obj/main.o ./obj/validation.o
-	$(CC_old) obj/common.o obj/order.o obj/main.o obj/validation.o -o bin/db.out
+db: ./obj/common.o ./obj/lesson.o ./obj/main.o ./obj/validation.o
+	$(CC_old) obj/common.o obj/lesson.o obj/main.o obj/validation.o -o bin/db.out
 
 ./obj/main.o: ./src/main.cpp
 	$(CC_old) $(CFLAGS_old) ./src/main.cpp -o ./obj/main.o
@@ -750,14 +748,16 @@ db: ./obj/common.o ./obj/order.o ./obj/main.o ./obj/validation.o
 ./obj/validation.o: ./src/validation.cpp
 	$(CC_old) $(CFLAGS_old) ./src/validation.cpp -o ./obj/validation.o
 
-./obj/order.o: ./src/order.cpp
-	$(CC_old) $(CFLAGS_old) ./src/order.cpp -o ./obj/order.o
+./obj/lesson.o: ./src/lesson.cpp
+	$(CC_old) $(CFLAGS_old) ./src/lesson.cpp -o ./obj/lesson.o
 
 ./obj/common.o: ./src/common.cpp
 	$(CC_old) $(CFLAGS_old) ./src/common.cpp -o ./obj/common.o
 
 cleantest:
 	rm -rf ./test/*.out
+
+uninstall-am:
 
 .MAKE: $(am__recursive_targets) all install-am install-strip
 

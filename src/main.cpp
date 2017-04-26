@@ -10,9 +10,9 @@
 
 using namespace std;
 
-// База заказов Интернет-магазина. Поля: ФИО заказчика, стоимость заказа, скидка (в процентах), адрес доставки.
+// База данных загрузки аудиторий. Поля: дата и время начала, дата и время конца, аудитория, преподаватель
 
-#include "order.h"
+#include "lesson.h"
 #include "common.h"
 
 const string ADD  = "add";
@@ -36,17 +36,17 @@ string launch_menu() {
 void show_help()
 {
     cout << endl
-         << "add    Create a order" << endl
-         << "ls     Browse orders" << endl
-         << "save   Export orders into JSON file" << endl
-         << "load   Import orders from JSON file" << endl
+         << "add    Create a lesson" << endl
+         << "ls     Browse lessons" << endl
+         << "save   Export lessons into JSON file" << endl
+         << "load   Import lessons from JSON file" << endl
          << "help   Show this message" << endl 
          << endl
          << "Type 'exit' to quit" << endl;
 }
 
 int main() {
-    cout << endl << accent << "Glu PR2. Online shop order database." << endl << white;
+    cout << endl << accent << "Glu PR2. Lesson database." << endl << white;
     
     show_help();
     
@@ -57,11 +57,11 @@ int main() {
     {
         if (in == ADD)
         {
-            launch_create_order_dialog();
+            launch_create_lesson_dialog();
         }
         else if (in == BRWS)
         {
-            print_orders();
+            print_lessons();
         }
         else if (in == LOAD)
         {
