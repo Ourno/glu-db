@@ -90,7 +90,7 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_db_OBJECTS = common.$(OBJEXT) lesson.$(OBJEXT) main.$(OBJEXT) \
+am_db_OBJECTS = common.$(OBJEXT) coast.$(OBJEXT) main.$(OBJEXT) \
 	validation.$(OBJEXT)
 db_OBJECTS = $(am_db_OBJECTS)
 db_LDADD = $(LDADD)
@@ -242,7 +242,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-db_SOURCES = common.cpp lesson.cpp main.cpp validation.cpp
+db_SOURCES = common.cpp coast.cpp main.cpp validation.cpp
 all: all-am
 
 .SUFFIXES:
@@ -331,7 +331,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/common.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lesson.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/coast.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/validation.Po@am__quote@
 

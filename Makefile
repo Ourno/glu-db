@@ -127,7 +127,7 @@ AM_RECURSIVE_TARGETS = $(am__recursive_targets:-recursive=) TAGS CTAGS \
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) \
 	$(LISP)config.h.in
 # Read a list of newline-separated strings from the standard input,
-# and print each of them once, without duplicates.  Input lesson is
+# and print each of them once, without duplicates.  Input order is
 # *not* preserved.
 am__uniquify_input = $(AWK) '\
   BEGIN { nonempty = 0; } \
@@ -188,12 +188,12 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/ubuntu/workspace/pr2/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/ubuntu/workspace/pr_2/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /home/ubuntu/workspace/pr2/missing autoconf
-AUTOHEADER = ${SHELL} /home/ubuntu/workspace/pr2/missing autoheader
-AUTOMAKE = ${SHELL} /home/ubuntu/workspace/pr2/missing automake-1.14
+AUTOCONF = ${SHELL} /home/ubuntu/workspace/pr_2/missing autoconf
+AUTOHEADER = ${SHELL} /home/ubuntu/workspace/pr_2/missing autoheader
+AUTOMAKE = ${SHELL} /home/ubuntu/workspace/pr_2/missing automake-1.14
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -221,7 +221,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = -lrt 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/ubuntu/workspace/pr2/missing makeinfo
+MAKEINFO = ${SHELL} /home/ubuntu/workspace/pr_2/missing makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = glu_pr2_db
@@ -237,10 +237,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = 
 VERSION = 1.0
-abs_builddir = /home/ubuntu/workspace/pr2
-abs_srcdir = /home/ubuntu/workspace/pr2
-abs_top_builddir = /home/ubuntu/workspace/pr2
-abs_top_srcdir = /home/ubuntu/workspace/pr2
+abs_builddir = /home/ubuntu/workspace/pr_2
+abs_srcdir = /home/ubuntu/workspace/pr_2
+abs_top_builddir = /home/ubuntu/workspace/pr_2
+abs_top_srcdir = /home/ubuntu/workspace/pr_2
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 am__include = include
@@ -260,7 +260,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/ubuntu/workspace/pr2/install-sh
+install_sh = ${SHELL} /home/ubuntu/workspace/pr_2/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -731,6 +731,33 @@ ps: ps-recursive
 
 ps-am:
 
+uninstall-am:
+
+.MAKE: $(am__recursive_targets) all install-am install-strip
+
+.PHONY: $(am__recursive_targets) CTAGS GTAGS TAGS all all-am \
+	am--refresh check check-am clean clean-cscope clean-generic \
+	cscope cscopelist-am ctags ctags-am dist dist-all dist-bzip2 \
+	dist-gzip dist-lzip dist-shar dist-tarZ dist-xz dist-zip \
+	distcheck distclean distclean-generic distclean-hdr \
+	distclean-tags distcleancheck distdir distuninstallcheck dvi \
+	dvi-am html html-am info info-am install install-am \
+	install-data install-data-am install-dvi install-dvi-am \
+	install-exec install-exec-am install-html install-html-am \
+	install-info install-info-am install-man install-pdf \
+	install-pdf-am install-ps install-ps-am install-strip \
+	installcheck installcheck-am installdirs installdirs-am \
+	maintainer-clean maintainer-clean-generic mostlyclean \
+	mostlyclean-generic pdf pdf-am ps ps-am tags tags-am uninstall \
+	uninstall-am
+
+
+# Tell versions [3.59,3.63) of GNU make to not export all variables.
+# Otherwise a system limit (for SysV at least) may be exceeded.
+.NOEXPORT:
+
+
+
 CC_old=g++
 
 CFLAGS_old=-c -Wall -std=c++11 -g
@@ -756,28 +783,3 @@ db: ./obj/common.o ./obj/lesson.o ./obj/main.o ./obj/validation.o
 
 cleantest:
 	rm -rf ./test/*.out
-
-uninstall-am:
-
-.MAKE: $(am__recursive_targets) all install-am install-strip
-
-.PHONY: $(am__recursive_targets) CTAGS GTAGS TAGS all all-am \
-	am--refresh check check-am clean clean-cscope clean-generic \
-	cscope cscopelist-am ctags ctags-am dist dist-all dist-bzip2 \
-	dist-gzip dist-lzip dist-shar dist-tarZ dist-xz dist-zip \
-	distcheck distclean distclean-generic distclean-hdr \
-	distclean-tags distcleancheck distdir distuninstallcheck dvi \
-	dvi-am html html-am info info-am install install-am \
-	install-data install-data-am install-dvi install-dvi-am \
-	install-exec install-exec-am install-html install-html-am \
-	install-info install-info-am install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs installdirs-am \
-	maintainer-clean maintainer-clean-generic mostlyclean \
-	mostlyclean-generic pdf pdf-am ps ps-am tags tags-am uninstall \
-	uninstall-am
-
-
-# Tell versions [3.59,3.63) of GNU make to not export all variables.
-# Otherwise a system limit (for SysV at least) may be exceeded.
-.NOEXPORT:

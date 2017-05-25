@@ -12,7 +12,7 @@ using namespace std;
 
 // База данных загрузки аудиторий. Поля: дата и время начала, дата и время конца, аудитория, преподаватель
 
-#include "lesson.h"
+#include "coast.h"
 #include "common.h"
 
 const string ADD  = "add";
@@ -36,17 +36,17 @@ string launch_menu() {
 void show_help()
 {
     cout << endl
-         << "add    Create a lesson" << endl
-         << "ls     Browse lessons" << endl
-         << "save   Export lessons into JSON file" << endl
-         << "load   Import lessons from JSON file" << endl
+         << "add    Create a coast" << endl
+         << "ls     Browse coasts" << endl
+         << "save   Export coasts into JSON file" << endl
+         << "load   Import coasts from JSON file" << endl
          << "help   Show this message" << endl 
          << endl
          << "Type 'exit' to quit" << endl;
 }
 
 int main() {
-    cout << endl << accent << "Glu PR2. Lesson database." << endl << white;
+    cout << endl << accent << "Glu PR2. Illegaly closed coasts database." << endl << white;
     
     show_help();
     
@@ -57,11 +57,11 @@ int main() {
     {
         if (in == ADD)
         {
-            launch_create_lesson_dialog();
+            launch_create_coast_dialog();
         }
         else if (in == BRWS)
         {
-            print_lessons();
+            print_coasts();
         }
         else if (in == LOAD)
         {

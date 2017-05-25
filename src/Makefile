@@ -90,7 +90,7 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_db_OBJECTS = common.$(OBJEXT) lesson.$(OBJEXT) main.$(OBJEXT) \
+am_db_OBJECTS = common.$(OBJEXT) coast.$(OBJEXT) main.$(OBJEXT) \
 	validation.$(OBJEXT)
 db_OBJECTS = $(am_db_OBJECTS)
 db_LDADD = $(LDADD)
@@ -150,12 +150,12 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/ubuntu/workspace/pr2/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/ubuntu/workspace/pr_2/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /home/ubuntu/workspace/pr2/missing autoconf
-AUTOHEADER = ${SHELL} /home/ubuntu/workspace/pr2/missing autoheader
-AUTOMAKE = ${SHELL} /home/ubuntu/workspace/pr2/missing automake-1.14
+AUTOCONF = ${SHELL} /home/ubuntu/workspace/pr_2/missing autoconf
+AUTOHEADER = ${SHELL} /home/ubuntu/workspace/pr_2/missing autoheader
+AUTOMAKE = ${SHELL} /home/ubuntu/workspace/pr_2/missing automake-1.14
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -163,10 +163,10 @@ CFLAGS = -g -O2
 CPP = gcc -E
 CPPFLAGS = 
 CXX = g++
-CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -g -O2
+CXXDEPMODE = depmode=gcc3 
+CXXFLAGS = -g -O2 -std=c++11
 CYGPATH_W = echo
-DEFS = -DHAVE_CONFIG_H --std=c++11
+DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
 ECHO_C = 
 ECHO_N = -n
@@ -183,7 +183,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = -lrt 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/ubuntu/workspace/pr2/missing makeinfo
+MAKEINFO = ${SHELL} /home/ubuntu/workspace/pr_2/missing makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = glu_pr2_db
@@ -199,10 +199,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = 
 VERSION = 1.0
-abs_builddir = /home/ubuntu/workspace/pr2/src
-abs_srcdir = /home/ubuntu/workspace/pr2/src
-abs_top_builddir = /home/ubuntu/workspace/pr2
-abs_top_srcdir = /home/ubuntu/workspace/pr2
+abs_builddir = /home/ubuntu/workspace/pr_2/src
+abs_srcdir = /home/ubuntu/workspace/pr_2/src
+abs_top_builddir = /home/ubuntu/workspace/pr_2
+abs_top_srcdir = /home/ubuntu/workspace/pr_2
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 am__include = include
@@ -222,7 +222,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/ubuntu/workspace/pr2/install-sh
+install_sh = ${SHELL} /home/ubuntu/workspace/pr_2/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -242,7 +242,7 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-db_SOURCES = common.cpp lesson.cpp main.cpp validation.cpp
+db_SOURCES = common.cpp coast.cpp main.cpp validation.cpp
 all: all-am
 
 .SUFFIXES:
@@ -331,7 +331,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 include ./$(DEPDIR)/common.Po
-include ./$(DEPDIR)/lesson.Po
+include ./$(DEPDIR)/coast.Po
 include ./$(DEPDIR)/main.Po
 include ./$(DEPDIR)/validation.Po
 

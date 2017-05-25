@@ -48,22 +48,12 @@ bool is_date_string_valid(string datestring)
     return result;
 }
 
-bool is_time_string_valid(string timestring)
+bool is_int_positive(int the_int)
 {
-    tm* date = new tm;
-    bool result;
-    
-    bool is_time_correct = strptime(timestring.c_str(), "%H:%M", date) != NULL;
-    
-    if (!is_time_correct) 
-    {
-        result = false;
-    }
-    else
-    {
-        result = true;
-    }
-    
-    delete(date);
-    return result;
+    return (the_int > 0);
+}
+
+bool is_float_positive(float the_float)
+{
+    return (the_float > 0);
 }
